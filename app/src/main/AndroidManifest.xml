@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="scut.carson_ho.borchshop">
+
+
+
+    <!--网络权限-->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+
+    <!-- 应用程序启动时实例化该类-->
+    <application
+
+        android:name=".BaseApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!--activity清单-->
+        <activity
+            android:name=".WelcomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".WebActivity"/>
+
+
+
+    </application>
+
+</manifest>
