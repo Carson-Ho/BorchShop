@@ -14,8 +14,8 @@
     <!--轮播区域-->
     <android.support.v4.view.ViewPager
         android:id="@+id/id_viewpager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_width="@dimen/x185"
+        android:layout_height="@dimen/y156" >
     </android.support.v4.view.ViewPager>
 
     <!--点的区域-->
