@@ -1,51 +1,27 @@
 package scut.carson_ho.borchshop;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.Button;
 
-import java.util.ArrayList;
-import java.util.List;
-
+/**
+ * Created by Carson_Ho on 17/3/7.
+ */
 public class WelcomeActivity extends Activity implements View.OnClickListener {
 
 
-    // 欢迎页组件ViewPager变量
-    private ViewPager viewpager;
-    private Context context;
-
-    //"点"布局
-    private LinearLayout layoutDot;
-    private LinearLayout.LayoutParams p;
-
-    private List<ImageView> dots = new ArrayList<ImageView>();
-    private int currPageIndex;
-
     // 欢迎页倒计时变量
-    private TextView tv_time;
-
-    private int[] imageIds = new int[]{R.drawable.wel_1,
-            R.drawable.wel_2, R.drawable.wel_3};
-
-    private List<ImageView> imageViewList = new ArrayList<ImageView>();
+    private Button tv_time;
 
 
     HandlerThread mHandlerThread;
     Handler mainHandler, workHandler;
-    int time = 3;
-
+    int time = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +29,7 @@ public class WelcomeActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-        tv_time = (TextView) findViewById(R.id.tv_time);
+        tv_time = (Button) findViewById(R.id.tv_time);
 
         // 用于欢迎页的倒计时
         //创建与主线程关联的Handler
@@ -61,42 +37,21 @@ public class WelcomeActivity extends Activity implements View.OnClickListener {
         //创建欢迎页倒计时工作线程
         initBackground();
 
-        //用SharedPreferences存放系统配置:是否第一次启动
-        //参数1:指定文件名称;参数2:设置为默认存储模式:代表该文件是私有数据，只能被应用本身访问
-        SharedPreferences setting = getSharedPreferences("WelcomeActivity", 0);
-
-        //数据读取,如果不存在"FIRST"字段,则返回后面值:true
-        Boolean user_first = setting.getBoolean("FIRST", true);
-
-        // 用户第1次启动App
-        if (user_first) {
-            //获取编辑器并写入数据
-            setting.edit().putBoolean("FIRST", false).commit();
-            // 启动引导页
-            theFirstStart();
-
-            // 第(n+1)次启动
-            // 启动欢迎页(不启动引导页)
-
-        } else {
+        tv_time.setVisibility(View.VISIBLE);
+        //倒计时
+        tv_time.setText("点击跳过 2s");
+        tv_time.setClickable(true);
+        tv_time.setOnClickListener(this);
 
 
-            tv_time.setVisibility(View.VISIBLE);
-            //倒计时
-            tv_time.setText("点击跳过 3s");
-            tv_time.setClickable(true);
-            tv_time.setOnClickListener(this);
-
-            // 启动欢迎页
-            multipleStart();
-        }
+        Message msg = workHandler.obtainMessage();
+        msg.what = 1;
+        workHandler.sendMessageDelayed(msg, 1000);
 
 
 
 
     }
-
-
 
     @Override
     public void onClick(View v) {
@@ -110,169 +65,6 @@ public class WelcomeActivity extends Activity implements View.OnClickListener {
     }
 
 
-    /**
-     * 引导页(第一次启动时调用)
-     **/
-    @SuppressWarnings("deprecation")
-    private void theFirstStart() {
-
-        //初始化点
-        initDots();
-
-        //存储卡的创建
-        //SdcardConfig.getInstance().initSdcard();
-
-        viewpager = (ViewPager) findViewById(R.id.id_viewpager);
-
-        //viewPager页面滑动的事件
-        viewpager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            Boolean flag = false;
-
-            //在状态改变的时候调用
-            //其中arg0参数有三种状态
-            //SCROLL_STATE_DRAGGING:(拽拉)页面被拖动/滑动时
-            //SCROLL_STATE_IDLE:(空闲) 只要拖动/滑动结束，无论是否安放到了目标页
-            //SCROLL_STATE_SETTLING:(安居)通过拖动/滑动，安放到了目标页
-            @Override
-            public void onPageScrollStateChanged(int arg0) {
-                switch (arg0) {
-                    case ViewPager.SCROLL_STATE_DRAGGING:
-                        flag = false;
-                        break;
-                    case ViewPager.SCROLL_STATE_SETTLING:
-                        flag = true;
-                        break;
-
-                    case ViewPager.SCROLL_STATE_IDLE:
-                        //如果viewpager翻到最后一页而且有拉扯但是没有滑动完毕的情况，就会启动Mainactivity
-                        //划完了就跳转
-                        if (viewpager.getCurrentItem() == viewpager.getAdapter()
-                                .getCount() - 1 && !flag) {
-                            Intent localIntent = new Intent();
-                            localIntent.setClass(WelcomeActivity.this,
-                                    WebActivity.class);
-
-                            startActivity(localIntent);
-
-                            overridePendingTransition(0, 0);
-
-                            WelcomeActivity.this.finish();
-                        }
-
-                        flag = true;
-                        break;
-                }
-            }
-
-            //页面滑动完后调用
-            //arg0=当前选中的页面的Position（位置编号）。
-            @Override
-            public void onPageSelected(int arg0) {
-                // 旧点不亮
-                dots.get(currPageIndex % imageIds.length).setSelected(false);
-                // 新点高亮
-                currPageIndex = arg0;
-                dots.get(currPageIndex % imageIds.length).setSelected(true);
-            }
-
-
-            // 当页面在滑动的时候会调用此方法，在滑动被停止之前，此方法一直被调用
-            //其中三个参数的含义分别为：
-            //arg0:当前页面，即你点击滑动的页面
-            //arg1:当前页面偏移的百分比
-            //arg2:当前页面偏移的像素位置
-
-
-            @Override
-            public void onPageScrolled(int arg0, float arg1, int arg2) {
-            }
-        });
-
-
-        //用于设置ViewPager切换时的动画效果:DepthPageTransformer
-        viewpager.setPageTransformer(true, new DepthPageTransformer());
-        context = this.getApplicationContext();
-        viewpager.setAdapter(new PagerAdapter() {
-            @Override
-            //初始化viewpager的每一个Item
-            public Object instantiateItem(ViewGroup container, int position) {
-                ImageView imageView = new ImageView(context);
-                imageView.setImageResource(imageIds[position]);
-                imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                container.addView(imageView);
-                imageViewList.add(imageView);
-                return imageView;
-            }
-
-
-            @Override
-            public void destroyItem(ViewGroup container, int position,
-                                    Object object) {
-                container.removeView(imageViewList.get(position));
-            }
-
-            @Override
-            public boolean isViewFromObject(View arg0, Object arg1) {
-                return arg0 == arg1;
-            }
-
-            @Override
-            public int getCount() {
-                return imageIds.length;
-            }
-        });
-    }
-
-    //初始化启动页下方的点(动态添加)
-    private void initDots() {
-        //设置"点"的参数
-        p = new LinearLayout.LayoutParams(
-                //
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT);
-        p.rightMargin = 6;
-
-        //点的布局
-        layoutDot = (LinearLayout) findViewById(R.id.layout_dots);
-        currPageIndex = imageIds.length * 100;
-
-        //多少个图片,设置多少个点
-        for (int i = 0; i < imageIds.length; i++) {
-            //创建图,用来装点
-            ImageView img = new ImageView(getApplication());
-            //点的背景
-            img.setBackgroundResource(R.drawable.dot_selector);
-            //默认未选中
-            img.setSelected(false);
-
-            // .java LinearLayout.LayoutParams 布局参数
-
-            //代码设置"点"的布局
-            LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(
-                    //
-                    LinearLayout.LayoutParams.WRAP_CONTENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT);
-            p.rightMargin = 6;
-
-            //动态添加"点"组件到点的布局里
-            layoutDot.addView(img, p);
-            //将图片加入到一个List里面去
-            dots.add(img);
-        }
-        dots.get(0).setSelected(true);
-    }
-
-
-    /**
-     * 多次启动
-     **/
-    private void multipleStart() {
-        Message msg = workHandler.obtainMessage();
-        msg.what = 1;
-        workHandler.sendMessageDelayed(msg, 1000);
-
-
-    }
 
     /**
      * 跳过直接进入商城主页
@@ -285,6 +77,7 @@ public class WelcomeActivity extends Activity implements View.OnClickListener {
         startActivity(localIntent);
         finish();
     }
+
 
 
     /**
@@ -349,3 +142,4 @@ public class WelcomeActivity extends Activity implements View.OnClickListener {
         workHandler.removeCallbacksAndMessages(null);
     }
 }
+
