@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_guider5"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:activity="scut.carson_ho.borchshop.Guiders.GuiderActivity5">
+
+    <include layout="@layout/guider_bar_layout"/>
+
+    <ImageView
+        android:layout_width="@dimen/x228"
+        android:layout_height="@dimen/y36"
+        android:layout_below="@+id/Guider_Bar"
+        android:src="@drawable/ic_car_4"
+        android:layout_marginTop="@dimen/y20"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Guider5PleaseTextView"
+        android:textSize="@dimen/GuiderPleaseTextSize"
+        android:textColor="@color/BorchPleaseTextColor"
+        android:layout_below="@id/Guider_Bar"
+        android:layout_marginTop="@dimen/y75"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/tv_Guider5Please"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Guider5NameTextView"
+        android:textSize="@dimen/Guider2TypeTextSize"
+        android:layout_below="@+id/Guider_Bar"
+        android:layout_marginTop="@dimen/y124"
+        android:layout_marginStart="@dimen/x49"
+        android:id="@+id/tv_Guider5NameTextView"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Guider5PhoneTextView"
+        android:textSize="@dimen/Guider2TypeTextSize"
+        android:layout_below="@+id/tv_Guider5NameTextView"
+        android:layout_marginTop="@dimen/y20"
+        android:layout_marginStart="@dimen/x49"
+        android:id="@+id/tv_Guider5PhoneTextView"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Guider5CompanyTextView"
+        android:textSize="@dimen/Guider2TypeTextSize"
+        android:layout_below="@+id/tv_Guider5PhoneTextView"
+        android:layout_marginTop="@dimen/y20"
+        android:layout_marginStart="@dimen/x49"
+        android:id="@+id/tv_Guider5CompanyTextView"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/Guider5NameEditTextDefault"
+        android:textSize="@dimen/GuiderEditTextHintTextSize"
+        android:textColorHint="@color/GuiderEditTextHintTextColor"
+        android:layout_alignTop="@+id/tv_Guider5NameTextView"
+        android:layout_toEndOf="@+id/tv_Guider5NameTextView"
+        android:layout_marginTop="@dimen/y1"
+        android:layout_marginStart="@dimen/x48"
+        android:background="@null"
+        android:id="@+id/et_Guider5Name"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/Guider5PhoneEditTextDefault"
+        android:textSize="@dimen/GuiderEditTextHintTextSize"
+        android:textColorHint="@color/GuiderEditTextHintTextColor"
+        android:layout_alignTop="@+id/tv_Guider5PhoneTextView"
+        android:layout_toEndOf="@+id/tv_Guider5PhoneTextView"
+        android:layout_marginTop="@dimen/y1"
+        android:layout_marginStart="@dimen/x48"
+        android:background="@null"
+        android:inputType="phone"
+        android:id="@+id/et_Guider5Phone"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/Guider5CompanyEditTextDefault"
+        android:textSize="@dimen/GuiderEditTextHintTextSize"
+        android:textColorHint="@color/GuiderEditTextHintTextColor"
+        android:layout_alignTop="@+id/tv_Guider5CompanyTextView"
+        android:layout_toEndOf="@+id/tv_Guider5CompanyTextView"
+        android:layout_marginTop="@dimen/y1"
+        android:layout_marginStart="@dimen/x48"
+        android:background="@null"
+        android:id="@+id/et_Guider5Company"/>
+
+    <RelativeLayout
+        android:layout_width="@dimen/x188"
+        android:layout_height="1dp"
+        android:background="@color/GuiderEditTextHintTextColor"
+        android:layout_below="@+id/tv_Guider5NameTextView"
+        android:layout_toRightOf="@+id/tv_Guider5NameTextView"
+        android:layout_marginTop="@dimen/y3"/>
+
+    <RelativeLayout
+        android:layout_width="@dimen/x188"
+        android:layout_height="1dp"
+        android:background="@color/GuiderEditTextHintTextColor"
+        android:layout_below="@+id/tv_Guider5PhoneTextView"
+        android:layout_toRightOf="@+id/tv_Guider5PhoneTextView"
+        android:layout_marginTop="@dimen/y3"/>
+
+    <RelativeLayout
+        android:layout_width="@dimen/x188"
+        android:layout_height="1dp"
+        android:background="@color/GuiderEditTextHintTextColor"
+        android:layout_below="@+id/tv_Guider5CompanyTextView"
+        android:layout_toRightOf="@+id/tv_Guider5CompanyTextView"
+        android:layout_marginTop="@dimen/y3"/>
+
+    <scut.carson_ho.borchshop.Guiders.GuiderNextButton
+        android:layout_width="@dimen/x200"
+        android:layout_height="@dimen/y27"
+        android:layout_below="@+id/tv_Guider5CompanyTextView"
+        android:layout_marginTop="@dimen/y60"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/guider_button_selector"
+        android:text="@string/GuiderFinishButton"
+        android:textColor="@color/BorchBarTitleColor"
+        android:id="@+id/btn_Guider_Next"/>
+</RelativeLayout>

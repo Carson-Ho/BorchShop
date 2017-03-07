@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_guider3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/GuiderBackGroundColor"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:activity="scut.carson_ho.borchshop.Guiders.GuiderActivity3">
+
+    <include layout="@layout/guider_bar_layout"/>
+
+    <ImageView
+        android:layout_width="@dimen/x228"
+        android:layout_height="@dimen/y36"
+        android:layout_below="@+id/Guider_Bar"
+        android:src="@drawable/ic_car_2"
+        android:layout_marginTop="@dimen/y20"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Guider3PleaseTextView"
+        android:textSize="@dimen/GuiderPleaseTextSize"
+        android:textColor="@color/BorchPleaseTextColor"
+        android:layout_below="@id/Guider_Bar"
+        android:layout_marginTop="@dimen/y75"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/tv_Guider3Please"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Guider3SizeTextView"
+        android:textSize="@dimen/Guider3SizeTextSize"
+        android:textColor="@color/Guider3SizeTextColor"
+        android:layout_below="@+id/tv_Guider3Please"
+        android:layout_marginTop="@dimen/y10"
+        android:layout_marginStart="@dimen/x64"
+        android:id="@+id/tv_Guider3Size"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Guider3LengthTextView"
+        android:textSize="@dimen/Guider3SizeTextSize"
+        android:textColor="@color/Guider3SizeTextColor"
+        android:layout_below="@+id/tv_Guider3Size"
+        android:layout_marginTop="@dimen/y10"
+        android:layout_marginStart="@dimen/x65"
+        android:id="@+id/tv_Guider3Length"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Guider3WidthTextView"
+        android:textSize="@dimen/Guider3SizeTextSize"
+        android:textColor="@color/Guider3SizeTextColor"
+        android:layout_below="@+id/tv_Guider3Length"
+        android:layout_marginTop="@dimen/y14"
+        android:layout_marginStart="@dimen/x65"
+        android:id="@+id/tv_Guider3Width"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Guider3HeightTextView"
+        android:textSize="@dimen/Guider3SizeTextSize"
+        android:textColor="@color/Guider3SizeTextColor"
+        android:layout_below="@+id/tv_Guider3Width"
+        android:layout_marginTop="@dimen/y14"
+        android:layout_marginStart="@dimen/x65"
+        android:id="@+id/tv_Guider3Height"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="请输入长度"
+        android:textSize="@dimen/GuiderEditTextHintTextSize"
+        android:textColorHint="@color/GuiderEditTextHintTextColor"
+        android:layout_alignTop="@+id/tv_Guider3Length"
+        android:layout_toEndOf="@+id/tv_Guider3Length"
+        android:layout_marginStart="@dimen/x70"
+        android:layout_marginTop="@dimen/y1"
+        android:inputType="number"
+        android:background="@null"
+        android:id="@+id/et_Guider3Length"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="请输入宽度"
+        android:textSize="@dimen/GuiderEditTextHintTextSize"
+        android:textColorHint="@color/GuiderEditTextHintTextColor"
+        android:layout_alignTop="@+id/tv_Guider3Width"
+        android:layout_toEndOf="@+id/tv_Guider3Width"
+        android:layout_marginStart="@dimen/x70"
+        android:layout_marginTop="@dimen/y1"
+        android:inputType="number"
+        android:background="@null"
+        android:id="@+id/et_Guider3Width"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="请输入高度"
+        android:textSize="@dimen/GuiderEditTextHintTextSize"
+        android:textColorHint="@color/GuiderEditTextHintTextColor"
+        android:layout_alignTop="@+id/tv_Guider3Height"
+        android:layout_toEndOf="@+id/tv_Guider3Height"
+        android:layout_marginStart="@dimen/x70"
+        android:layout_marginTop="@dimen/y1"
+        android:inputType="number"
+        android:background="@null"
+        android:id="@+id/et_Guider3Height"/>
+
+    <RelativeLayout
+        android:layout_width="@dimen/x188"
+        android:layout_height="1dp"
+        android:background="@color/GuiderEditTextHintTextColor"
+        android:layout_below="@+id/tv_Guider3Length"
+        android:layout_toEndOf="@+id/tv_Guider3Length"
+        android:layout_marginTop="@dimen/y3"/>
+
+    <RelativeLayout
+        android:layout_width="@dimen/x188"
+        android:layout_height="1dp"
+        android:background="@color/GuiderEditTextHintTextColor"
+        android:layout_below="@+id/tv_Guider3Width"
+        android:layout_toEndOf="@+id/tv_Guider3Width"
+        android:layout_marginTop="@dimen/y3"/>
+
+    <RelativeLayout
+        android:layout_width="@dimen/x188"
+        android:layout_height="1dp"
+        android:background="@color/GuiderEditTextHintTextColor"
+        android:layout_below="@+id/tv_Guider3Height"
+        android:layout_toEndOf="@+id/tv_Guider3Height"
+        android:layout_marginTop="@dimen/y3"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Guider3MethodTextView"
+        android:textSize="@dimen/Guider3SizeTextSize"
+        android:textColor="@color/Guider3MethodTextColor"
+        android:layout_below="@+id/tv_Guider3Height"
+        android:layout_marginTop="@dimen/y14"
+        android:layout_marginStart="@dimen/x65"
+        android:id="@+id/tv_Guider3Method"/>
+    
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_Guider3Method"
+        android:layout_marginTop="@dimen/y10"
+        android:layout_marginStart="@dimen/x92"
+        android:orientation="horizontal"
+        android:id="@+id/rg_Method"
+        >
+        <RadioButton
+            android:layout_width="@dimen/x63"
+            android:layout_height="@dimen/y21"
+            android:text="@string/Guider3MethodRadioButton1"
+            android:textColor="@drawable/guider_radiobutton_text_selector"
+            android:background="@drawable/guider_radiobutton_background_selector"
+            android:button="@null"
+            android:id="@+id/btn_guider3_method_out"
+            android:gravity="center"
+            android:checked="true"/>
+
+        <RadioButton
+            android:layout_width="@dimen/x63"
+            android:layout_height="@dimen/y21"
+            android:text="@string/Guider3MethodRadioButton2"
+            android:textColor="@drawable/guider_radiobutton_text_selector"
+            android:background="@drawable/guider_radiobutton_background_selector"
+            android:button="@null"
+            android:id="@+id/btn_guider3_method_pull"
+            android:layout_marginStart="@dimen/x49"
+            android:gravity="center"/>
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Guider3RingTextView"
+        android:textSize="@dimen/Guider3SizeTextSize"
+        android:textColor="@color/Guider3MethodTextColor"
+        android:layout_below="@+id/tv_Guider3Method"
+        android:layout_marginTop="@dimen/y40"
+        android:layout_marginStart="@dimen/x65"
+        android:id="@+id/tv_GuiderRing"/>
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_GuiderRing"
+        android:layout_marginTop="@dimen/y10"
+        android:layout_marginStart="@dimen/x92"
+        android:orientation="horizontal"
+        android:id="@+id/rg_Ring"
+        >
+        <RadioButton
+            android:layout_width="@dimen/x63"
+            android:layout_height="@dimen/y21"
+            android:text="@string/Guider3RingRadioButton1"
+            android:textColor="@drawable/guider_radiobutton_text_selector"
+            android:background="@drawable/guider_radiobutton_background_selector"
+            android:button="@null"
+            android:id="@+id/btn_guider3_Ring1"
+            android:gravity="center"
+            android:checked="true"/>
+
+        <RadioButton
+            android:layout_width="@dimen/x63"
+            android:layout_height="@dimen/y21"
+            android:text="@string/Guider3RingRadioButton2"
+            android:textColor="@drawable/guider_radiobutton_text_selector"
+            android:background="@drawable/guider_radiobutton_background_selector"
+            android:button="@null"
+            android:id="@+id/btn_guider3_Ring2"
+            android:layout_marginStart="@dimen/x49"
+            android:gravity="center"/>
+    </RadioGroup>
+
+    <scut.carson_ho.borchshop.Guiders.GuiderNextButton
+        android:layout_width="@dimen/x200"
+        android:layout_height="@dimen/y27"
+        android:layout_below="@+id/tv_GuiderRing"
+        android:layout_marginTop="@dimen/y45"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/guider_button_selector"
+        android:text="@string/GuiderNextButton"
+        android:textColor="@color/BorchBarTitleColor"
+        android:id="@+id/btn_Guider_Next"/>
+</RelativeLayout>

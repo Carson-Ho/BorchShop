@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_guider4"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/GuiderBackGroundColor"
+    tools:activity="scut.carson_ho.borchshop.Guiders.GuiderActivity4">
+    <include layout="@layout/guider_bar_layout"/>
+
+    <ImageView
+        android:layout_width="@dimen/x228"
+        android:layout_height="@dimen/y36"
+        android:layout_below="@+id/Guider_Bar"
+        android:src="@drawable/ic_car_3"
+        android:layout_marginTop="@dimen/y20"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Guider4PleaseTextView"
+        android:textSize="@dimen/GuiderPleaseTextSize"
+        android:textColor="@color/BorchPleaseTextColor"
+        android:layout_below="@id/Guider_Bar"
+        android:layout_marginTop="@dimen/y75"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/tv_Guider4Please"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Guider4ScrewTypeTextView"
+        android:textSize="@dimen/Guider3SizeTextSize"
+        android:textColor="@color/Guider3SizeTextColor"
+        android:layout_below="@+id/tv_Guider4Please"
+        android:layout_marginTop="@dimen/y20"
+        android:layout_marginStart="@dimen/x64"
+        android:id="@+id/tv_Guider4ScrewType"/>
+    <scut.carson_ho.borchshop.Guiders.MutilayoutRadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_Guider4ScrewType"
+        android:layout_marginTop="@dimen/y11"
+        android:layout_marginStart="@dimen/x92"
+        android:orientation="vertical"
+        android:id="@+id/rg_Screw"
+
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <RadioButton
+            android:layout_width="@dimen/x63"
+            android:layout_height="@dimen/y21"
+            android:text="@string/Guider4ScrewTypeA"
+            android:textColor="@drawable/guider_radiobutton_text_selector"
+            android:background="@drawable/guider_radiobutton_background_selector"
+            android:button="@null"
+            android:id="@+id/btn_guider4_ScrewA"
+            android:gravity="center"
+            android:checked="true"/>
+
+        <RadioButton
+            android:layout_width="@dimen/x63"
+            android:layout_height="@dimen/y21"
+            android:text="@string/Guider4ScrewTypeB"
+            android:textColor="@drawable/guider_radiobutton_text_selector"
+            android:background="@drawable/guider_radiobutton_background_selector"
+            android:button="@null"
+            android:id="@+id/btn_guider4_ScrewB"
+            android:layout_marginStart="@dimen/x49"
+            android:gravity="center"/>
+        </LinearLayout>
+
+
+
+        <RadioButton
+            android:layout_width="@dimen/x63"
+            android:layout_height="@dimen/y21"
+            android:text="@string/Guider4ScrewTypeC"
+            android:textColor="@drawable/guider_radiobutton_text_selector"
+            android:background="@drawable/guider_radiobutton_background_selector"
+            android:button="@null"
+            android:id="@+id/btn_guider4_ScrewC"
+            android:layout_marginTop="@dimen/y10"
+            android:gravity="center"/>
+    </scut.carson_ho.borchshop.Guiders.MutilayoutRadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Guider4PowerTypeTextView"
+        android:textSize="@dimen/Guider3SizeTextSize"
+        android:textColor="@color/Guider3SizeTextColor"
+        android:layout_below="@+id/tv_Guider4ScrewType"
+        android:layout_marginTop="@dimen/y82"
+        android:layout_marginStart="@dimen/x64"
+        android:id="@+id/tv_Guider4PowerType"/>
+
+    <scut.carson_ho.borchshop.Guiders.MutilayoutRadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_Guider4PowerType"
+        android:layout_marginTop="@dimen/y11"
+        android:layout_marginStart="@dimen/x92"
+        android:orientation="vertical"
+        android:id="@+id/rg_Power"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:layout_width="@dimen/x63"
+                android:layout_height="@dimen/y21"
+                android:text="@string/Guider4PowerType1"
+                android:textColor="@drawable/guider_radiobutton_text_selector"
+                android:background="@drawable/guider_radiobutton_background_selector"
+                android:button="@null"
+                android:id="@+id/btn_guider4_Power1"
+                android:gravity="center"
+                android:checked="true"/>
+
+            <RadioButton
+                android:layout_width="@dimen/x63"
+                android:layout_height="@dimen/y21"
+                android:text="@string/Guider4PowerType2"
+                android:textColor="@drawable/guider_radiobutton_text_selector"
+                android:background="@drawable/guider_radiobutton_background_selector"
+                android:button="@null"
+                android:id="@+id/btn_guider4_Power2"
+                android:layout_marginStart="@dimen/x49"
+                android:gravity="center"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:layout_width="@dimen/x63"
+                android:layout_height="@dimen/y21"
+                android:text="@string/Guider4PowerType3"
+                android:textColor="@drawable/guider_radiobutton_text_selector"
+                android:background="@drawable/guider_radiobutton_background_selector"
+                android:button="@null"
+                android:id="@+id/btn_guider4_Power3"
+                android:layout_marginTop="@dimen/y10"
+                android:gravity="center"/>
+            <RadioButton
+                android:layout_width="@dimen/x63"
+                android:layout_height="@dimen/y21"
+                android:text="@string/Guider4PowerType4"
+                android:textColor="@drawable/guider_radiobutton_text_selector"
+                android:background="@drawable/guider_radiobutton_background_selector"
+                android:button="@null"
+                android:id="@+id/btn_guider4_Power4"
+                android:layout_marginStart="@dimen/x49"
+                android:layout_marginTop="@dimen/y10"
+                android:gravity="center"/>
+        </LinearLayout>
+
+
+    </scut.carson_ho.borchshop.Guiders.MutilayoutRadioGroup>
+
+    <scut.carson_ho.borchshop.Guiders.GuiderNextButton
+        android:layout_width="@dimen/x200"
+        android:layout_height="@dimen/y27"
+        android:layout_below="@+id/tv_Guider4PowerType"
+        android:layout_marginTop="@dimen/y100"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/guider_button_selector"
+        android:text="@string/GuiderNextButton"
+        android:textColor="@color/BorchBarTitleColor"
+        android:id="@+id/btn_Guider_Next"/>
+</RelativeLayout>

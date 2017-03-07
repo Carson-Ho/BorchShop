@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_guider1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:activity="scut.carson_ho.borchshop.Guiders.GuiderActivity1">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y31"
+        android:background="@color/BorchBarColor"
+        android:id="@+id/Guider1_Bar">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Guider1Title"
+            android:textSize="@dimen/BorchBarTitleSize"
+            android:textColor="@color/BorchBarTitleColor"
+            android:layout_centerInParent="true"/>
+
+        <scut.carson_ho.borchshop.Guiders.GuiderJumpButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/GuiderJumpButton"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/GuiderJumpButtonTextSize"
+            android:layout_marginEnd="@dimen/x14"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/btn_Guider_Jump"/>
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="@dimen/x222"
+        android:layout_height="@dimen/y187"
+        android:src="@drawable/ic_img"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/Guider1_Bar"
+        android:layout_marginTop="@dimen/y52"/>
+    <scut.carson_ho.borchshop.Guiders.GuiderNextButton
+        android:layout_width="@dimen/x200"
+        android:layout_height="@dimen/y27"
+        android:layout_below="@+id/Guider1_Bar"
+        android:layout_marginTop="@dimen/y293"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/guider_button_selector"
+        android:text="@string/Guider1StartButton"
+        android:textColor="@color/BorchBarTitleColor"
+        android:id="@+id/btn_Guider_Start"/>
+
+    
+</RelativeLayout>
