@@ -9,6 +9,8 @@ import android.os.Message;
 import android.view.View;
 import android.widget.Button;
 
+import scut.carson_ho.borchshop.Guiders.GuiderActivity1;
+
 /**
  * Created by Carson_Ho on 17/3/7.
  */
@@ -73,7 +75,7 @@ public class WelcomeActivity extends Activity implements View.OnClickListener {
     private void stepIntoNext() {
         workHandler.removeCallbacksAndMessages(null);
         Intent localIntent = new Intent();
-        localIntent.setClass(WelcomeActivity.this, WebActivity.class);
+        localIntent.setClass(WelcomeActivity.this, GuiderActivity1.class);
         startActivity(localIntent);
         finish();
     }

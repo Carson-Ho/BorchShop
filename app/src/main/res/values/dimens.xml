@@ -2,4 +2,11 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="BorchBarTitleSize">@dimen/y13</dimen>
+    <dimen name="GuiderJumpButtonTextSize">@dimen/y13</dimen>
+    <dimen name="GuiderPleaseTextSize">@dimen/y11</dimen>
+    <dimen name="Guider2TypeTextSize">@dimen/y13</dimen>
+    <dimen name="GuiderEditTextHintTextSize">@dimen/y10</dimen>
+    <dimen name="Guider3SizeTextSize">@dimen/y12</dimen>
+    <dimen name="GuiderRadioButtonTextSize">@dimen/y9</dimen>
 </resources>

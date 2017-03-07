@@ -19,8 +19,8 @@
         android:theme="@style/AppTheme">
 
         <!--activity清单-->
-        <activity
-            android:name=".GuideActivity">
+        <!-- activity清单 -->
+        <activity android:name=".WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,8 +28,18 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".WebActivity"/>
-        <activity android:name=".WelcomeActivity"/>
+        <activity android:name=".WebActivity" />
+        <activity android:name=".Guiders.GuiderActivity1" >
+
+        </activity>
+
+        <activity android:name=".Guiders.GuiderActivity2" />
+
+        <activity android:name=".Guiders.GuiderActivity3" />
+
+        <activity android:name=".Guiders.GuiderActivity4" />
+
+        <activity android:name=".Guiders.GuiderActivity5"/>
 
 
     </application>

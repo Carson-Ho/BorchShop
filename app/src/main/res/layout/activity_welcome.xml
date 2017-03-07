@@ -17,7 +17,7 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/wel_time"
         android:padding="5dp"
-        android:textColor="@color/white"
+        android:textColor="@color/colorWhite"
         android:textSize="12sp"
         android:visibility="gone"/>
 </LinearLayout>
