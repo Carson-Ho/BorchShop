@@ -1,3 +1,95 @@
 <resources>
     <string name="app_name">BorchShop</string>
+
+    <!--Guider-->
+    <string name="Guider1Title">博创智能</string>
+    <string name="GuiderTopBarTitle">购机向导</string>
+    <string name="Guider1StartButton">开启购机向导</string>
+    <string name="GuiderJumpButton">跳过</string>
+    <string name="GuiderNextButton">下一步</string>
+    <string name="GuiderFinishButton">完成</string>
+    <string name="Guider2PleaseTextView">请选择塑料制品参数</string>
+    <string name="Guider2TypeTextView">类型：</string>
+    <string name="Guider2TypeEditTextDefault">请选择类型</string>
+    <string-array name="TypeArray">
+        <item>电子电器元件</item>
+        <item>建筑材料</item>
+        <item>医疗器械</item>
+        <item>家用五金</item>
+        <item>食用器皿</item>
+        <item>交通器材</item>
+        <item>运动器材</item>
+        <item>照明设备</item>
+        <item>家电产品</item>
+        <item>办公器具</item>
+        <item>光学用品</item>
+    </string-array>
+    <string name="Guider2MaterialTextView">原料：</string>
+    <string name="Guider2MaterialEditTextDefault">请选择</string>
+    <string-array name="MaterialArray">
+        <item>PVC rigid</item>
+        <item>PVC soft</item>
+        <item>PC</item>
+        <item>PMMA</item>
+        <item>PA 4.6</item>
+        <item>PA 6</item>
+        <item>PA 6.6</item>
+        <item>PA 11</item>
+        <item>PA 12</item>
+        <item>PA amorphous</item>
+        <item>PET</item>
+        <item>CA</item>
+        <item>CAB</item>
+        <item>CP</item>
+        <item>PPE mod</item>
+        <item>PAR</item>
+        <item>PSU</item>
+        <item>PES</item>
+        <item>PAI</item>
+        <item>PE rigid</item>
+        <item>PP</item>
+        <item>POM</item>
+        <item>PBT</item>
+        <item>PPS</item>
+        <item>FEP</item>
+        <item>ETFE</item>
+        <item>PAA</item>
+        <item>PPA</item>
+        <item>PAEK</item>
+        <item>LCP</item>
+        <item>TP-U</item>
+        <item>热固性塑料</item>
+        <item>LSR</item>
+    </string-array>
+    <string name="Guider2WeightTextView">重量：</string>
+    <string name="Guider2WeightTEditTextDefault">请填写(单位g)</string>
+    <string name="Guider3PleaseTextView">请选择模具参数</string>
+    <string name="Guider3SizeTextView">尺寸(mm)</string>
+    <string name="Guider3LengthTextView">长：</string>
+    <string name="Guider3WidthTextView">宽：</string>
+    <string name="Guider3HeightTextView">高：</string>
+    <string name="Guider3MethodTextView">顶出方式</string>
+    <string name="Guider3MethodRadioButton1">顶出</string>
+    <string name="Guider3MethodRadioButton2">拉伸</string>
+    <string name="Guider3RingTextView">定位环</string>
+    <string name="Guider3RingRadioButton1">标注尺寸</string>
+    <string name="Guider3RingRadioButton2">非标注尺寸</string>
+    <string name="Guider4PleaseTextView">请选择注塑机参数</string>
+    <string name="Guider4ScrewTypeTextView">螺杆类型</string>
+    <string name="Guider4ScrewTypeA">A级螺杆</string>
+    <string name="Guider4ScrewTypeB">B级螺杆</string>
+    <string name="Guider4ScrewTypeC">C级螺杆</string>
+    <string name="Guider4PowerTypeTextView">动力类型</string>
+    <string name="Guider4PowerType1">油压</string>
+    <string name="Guider4PowerType2">液压</string>
+    <string name="Guider4PowerType3">全电</string>
+    <string name="Guider4PowerType4">油电混合</string>
+    <string name="Guider5PleaseTextView">请填写用户信息</string>
+    <string name="Guider5NameTextView">姓名：</string>
+    <string name="Guider5NameEditTextDefault">请输入你的姓名</string>
+    <string name="Guider5PhoneTextView">手机：</string>
+    <string name="Guider5PhoneEditTextDefault">请输入你的手机号码</string>
+    <string name="Guider5CompanyTextView">公司：</string>
+    <string name="Guider5CompanyEditTextDefault">请输入你的公司名称</string>
+    
 </resources>

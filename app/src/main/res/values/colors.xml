@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#3F51B5</color>
-    <color name="white">#ffffff</color>
+    <color name="colorWhite">#ffffff</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="light_black">#000000</color>
+    <color name="colorDark">#e4e4e4</color>
+    <color name="BorchBarColor">#FFD705</color>
+    <color name="BorchBarTitleColor">#6B450A</color>
+    <color name="BorchPleaseTextColor">#6B450A</color>
+    <color name="Guider2TypeTextColor">#333333</color>
+    <color name="GuiderEditTextHintTextColor">#CACACA</color>
+    <color name="GuiderBackGroundColor">#f4f4f4</color>
+    <color name="Guider3SizeTextColor">#333333</color>
+    <color name="Guider3MethodTextColor">#5a443c</color>
+    <color name="GuiderSelectedTextColor">#5a443c</color>
+    <color name="GuiderunSelectedTextColor">#bfbfbf</color>
+    <color name="colorGray">#CCCCCC</color>
 </resources>
