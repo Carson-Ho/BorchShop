@@ -230,7 +230,7 @@
         android:layout_width="@dimen/x200"
         android:layout_height="@dimen/y27"
         android:layout_below="@+id/tv_GuiderRing"
-        android:layout_marginTop="@dimen/y45"
+        android:layout_marginTop="@dimen/y60"
         android:layout_centerHorizontal="true"
         android:background="@drawable/guider_button_selector"
         android:text="@string/GuiderNextButton"
