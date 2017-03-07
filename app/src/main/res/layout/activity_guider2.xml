@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_guider2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/GuiderBackGroundColor"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:activity="scut.carson_ho.borchshop.Guiders.GuiderActivity2">
+
+    <include layout="@layout/guider_bar_layout"/>
+
+    <ImageView
+        android:layout_width="@dimen/x228"
+        android:layout_height="@dimen/y36"
+        android:layout_below="@+id/Guider_Bar"
+        android:src="@drawable/ic_car_1"
+        android:layout_marginTop="@dimen/y20"
+        android:layout_centerHorizontal="true"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Guider2PleaseTextView"
+        android:textSize="@dimen/GuiderPleaseTextSize"
+        android:textColor="@color/BorchPleaseTextColor"
+        android:layout_below="@id/Guider_Bar"
+        android:layout_marginTop="@dimen/y75"
+        android:layout_centerHorizontal="true"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Guider2TypeTextView"
+        android:textSize="@dimen/Guider2TypeTextSize"
+        android:layout_below="@+id/Guider_Bar"
+        android:layout_marginTop="@dimen/y124"
+        android:layout_marginStart="@dimen/x49"
+        android:id="@+id/tv_Guider2Type"/>
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Guider2MaterialTextView"
+        android:textSize="@dimen/Guider2TypeTextSize"
+        android:layout_below="@+id/tv_Guider2Type"
+        android:layout_marginTop="@dimen/y20"
+        android:layout_marginStart="@dimen/x49"
+        android:id="@+id/tv_Guider2Material"/>
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Guider2WeightTextView"
+        android:textSize="@dimen/Guider2TypeTextSize"
+        android:layout_below="@+id/tv_Guider2Material"
+        android:layout_marginTop="@dimen/y20"
+        android:layout_marginStart="@dimen/x49"
+        android:id="@+id/tv_Guider2Weight"/>
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Guider2TypeEditTextDefault"
+        android:textSize="@dimen/GuiderEditTextHintTextSize"
+        android:textColor="@color/GuiderEditTextHintTextColor"
+        android:id="@+id/tv_Guider2TypeContent"
+        android:layout_alignTop="@+id/tv_Guider2Type"
+        android:layout_marginTop="@dimen/y2"
+        android:layout_toEndOf="@+id/tv_Guider2Type"
+        android:layout_marginLeft="@dimen/x48"/>
+
+    <RelativeLayout
+        android:layout_width="@dimen/x188"
+        android:layout_height="1dp"
+        android:background="@color/GuiderEditTextHintTextColor"
+        android:layout_below="@+id/tv_Guider2Type"
+        android:layout_toRightOf="@+id/tv_Guider2Type"
+        android:layout_marginTop="@dimen/y3"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Guider2MaterialEditTextDefault"
+        android:textSize="@dimen/GuiderEditTextHintTextSize"
+        android:textColor="@color/GuiderEditTextHintTextColor"
+        android:layout_alignTop="@+id/tv_Guider2Material"
+        android:layout_toEndOf="@+id/tv_Guider2Material"
+        android:id="@+id/tv_Guider2MaterialContent"
+        android:layout_marginTop="@dimen/y2"
+        android:layout_marginLeft="@dimen/x48"/>
+
+    <RelativeLayout
+        android:layout_width="@dimen/x188"
+        android:layout_height="1dp"
+        android:background="@color/GuiderEditTextHintTextColor"
+        android:layout_below="@+id/tv_Guider2Material"
+        android:layout_toRightOf="@+id/tv_Guider2Material"
+        android:layout_marginTop="@dimen/y3"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/Guider2WeightTEditTextDefault"
+        android:textSize="@dimen/GuiderEditTextHintTextSize"
+        android:textColorHint="@color/GuiderEditTextHintTextColor"
+        android:layout_alignTop="@+id/tv_Guider2Weight"
+        android:layout_toEndOf="@+id/tv_Guider2Weight"
+        android:layout_marginStart="@dimen/x48"
+        android:layout_marginTop="@dimen/y1"
+        android:background="@null"
+        android:inputType="number"
+        android:id="@+id/et_Guider2Weight"/>
+
+    <RelativeLayout
+        android:layout_width="@dimen/x188"
+        android:layout_height="1dp"
+        android:background="@color/GuiderEditTextHintTextColor"
+        android:layout_below="@+id/tv_Guider2Weight"
+        android:layout_toRightOf="@+id/tv_Guider2Weight"
+        android:layout_marginTop="@dimen/y3"/>
+    
+    <ImageView
+        android:layout_width="@dimen/x20"
+        android:layout_height="@dimen/y17"
+        android:src="@drawable/ic_arrow_down"
+        android:layout_alignTop="@+id/tv_Guider2Type"
+        android:layout_toEndOf="@+id/tv_Guider2Type"
+        android:id="@+id/iv_Guider2Type"
+        android:layout_marginStart="@dimen/x145"/>
+
+    <ImageView
+        android:layout_width="@dimen/x20"
+        android:layout_height="@dimen/y17"
+        android:src="@drawable/ic_arrow_down_s"
+        android:layout_alignTop="@+id/tv_Guider2Material"
+        android:layout_toEndOf="@+id/tv_Guider2Material"
+        android:id="@+id/iv_Guider2Material"
+        android:layout_marginStart="@dimen/x145"/>
+
+    <scut.carson_ho.borchshop.Guiders.GuiderNextButton
+        android:layout_width="@dimen/x200"
+        android:layout_height="@dimen/y27"
+        android:layout_below="@+id/tv_Guider2Weight"
+        android:layout_marginTop="@dimen/y60"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/guider_button_selector"
+        android:text="@string/GuiderNextButton"
+        android:textColor="@color/BorchBarTitleColor"
+        android:id="@+id/btn_Guider_Next"/>
+</RelativeLayout>
