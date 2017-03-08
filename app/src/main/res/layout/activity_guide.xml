@@ -15,8 +15,8 @@
     <android.support.v4.view.ViewPager
         android:id="@+id/id_viewpager"
         android:layout_centerInParent="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
+        android:layout_width="@dimen/x268"
+        android:layout_height="@dimen/y342" >
     </android.support.v4.view.ViewPager>
 
     <!--点的区域-->
@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="45dp"
         android:orientation="horizontal" >
     </LinearLayout>
 

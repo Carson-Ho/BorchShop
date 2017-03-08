@@ -156,7 +156,7 @@ public class GuideActivity extends Activity  {
 
                             startActivity(localIntent);
 
-                            overridePendingTransition(0, 0);
+                            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
 
                             GuideActivity.this.finish();
                         }
@@ -227,12 +227,12 @@ public class GuideActivity extends Activity  {
 
     //初始化启动页下方的点(动态添加)
     private void initDots() {
-        //设置"点"的参数
-        p = new LinearLayout.LayoutParams(
-                //
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT);
-        p.rightMargin = 8;
+//        //设置"点"的参数
+//        p = new LinearLayout.LayoutParams(
+//                //
+//                LinearLayout.LayoutParams.WRAP_CONTENT,
+//                LinearLayout.LayoutParams.WRAP_CONTENT);
+//        p.rightMargin = 8;
 
         //点的布局
         layoutDot = (LinearLayout) findViewById(R.id.layout_dots);
@@ -248,13 +248,12 @@ public class GuideActivity extends Activity  {
             img.setSelected(false);
 
             // .java LinearLayout.LayoutParams 布局参数
-
             //代码设置"点"的布局
             LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(
-                    //
+
                     LinearLayout.LayoutParams.WRAP_CONTENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT);
-            p.rightMargin = 8;
+            p.rightMargin = 10;
 
             //动态添加"点"组件到点的布局里
             layoutDot.addView(img, p);
