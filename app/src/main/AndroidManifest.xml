@@ -20,7 +20,7 @@
     <permission android:name="scut.carson_ho.borchshop.permission.MIPUSH_RECEIVE" android:protectionLevel="signature" />
 
     //注意这里.permission.MIPUSH_RECEIVE是自身app的包名
-    <uses-permission android:name="scut.carson_ho.borchsho.permission.MIPUSH_RECEIVE" />
+    <uses-permission android:name="scut.carson_ho.borchshop.permission.MIPUSH_RECEIVE" />
 
     <!-- 应用程序启动时实例化该类-->
     <application
