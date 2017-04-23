@@ -45,6 +45,8 @@
 
         <activity android:name=".WelcomeActivity" />
         <activity android:name=".WebActivity" />
+        <activity android:name=".MachineToShopActivity" />
+
         <activity android:name=".Guiders.GuiderActivity1" >
 
         </activity>

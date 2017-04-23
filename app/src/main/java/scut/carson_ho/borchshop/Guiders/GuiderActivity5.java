@@ -7,8 +7,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import scut.carson_ho.borchshop.MachineToShopActivity;
 import scut.carson_ho.borchshop.R;
-import scut.carson_ho.borchshop.WebActivity;
 
 public class GuiderActivity5 extends GudierActivity {
     private GuiderNextButton btn_next;
@@ -26,7 +26,7 @@ public class GuiderActivity5 extends GudierActivity {
         btn_next = (GuiderNextButton) findViewById(R.id.btn_Guider_Next);
         btn_next.setActivity(this);
         btn_jump = (GuiderJumpButton) findViewById(R.id.btn_Guider_Jump);
-        btn_jump.setIntent(this,new Intent(this, WebActivity.class));
+        btn_jump.setIntent(this,new Intent(this, MachineToShopActivity.class));
         btn_back = (GuiderBackbutton) findViewById(R.id.btn_Guider_back);
         btn_back.setActivity(this);
 
@@ -41,13 +41,13 @@ public class GuiderActivity5 extends GudierActivity {
         btn_next.AddListeningEditTexts(defaultTextViews);
 
         productSearchParms = (ProductSearchParms) getIntent().getSerializableExtra("productSearchParms");
-        System.out.println(productSearchParms.getPowerType());
+//        System.out.println(productSearchParms.getPowerType());
 
     }
 
     @Override
     public Intent pushData() {
-        Intent intent = new Intent(this,WebActivity.class);
+        Intent intent = new Intent(this,MachineToShopActivity.class);
         productSearchParms.setName(et_Guider5Name.getText().toString());
         productSearchParms.setPowerType(et_Guider5Phone.getText().toString());
         productSearchParms.setCompany(et_Guider5Company.getText().toString());
