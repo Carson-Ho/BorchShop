@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import scut.carson_ho.borchshop.R;
-import scut.carson_ho.borchshop.WebActivity;
+import scut.carson_ho.borchshop.Web.WebActivity;
 
 public class GuiderActivity1 extends GudierActivity {
     private GuiderNextButton btn_start;
@@ -30,5 +30,11 @@ public class GuiderActivity1 extends GudierActivity {
     @Override
     public Intent pushData() {
         return new Intent(this,GuiderActivity2.class);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        System.out.println("onDestory");
     }
 }

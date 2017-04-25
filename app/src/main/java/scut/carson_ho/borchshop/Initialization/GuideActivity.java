@@ -1,4 +1,4 @@
-package scut.carson_ho.borchshop;
+package scut.carson_ho.borchshop.Initialization;
 
 import android.app.Activity;
 import android.content.Context;
@@ -17,6 +17,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import scut.carson_ho.borchshop.R;
 
 public class GuideActivity extends Activity  {
 
@@ -51,6 +53,7 @@ public class GuideActivity extends Activity  {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guide);
+        
 
 //        tv_time = (TextView) findViewById(R.id.tv_time);
 //

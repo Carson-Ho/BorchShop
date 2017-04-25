@@ -4,13 +4,15 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 
+import scut.carson_ho.borchshop.Web.WebviewEntity;
+
 /**
  * Created by Carson_Ho on 17/4/23.
  */
 public class MachineToShopActivity extends Activity {
 
     //声明的Webview子类
-    private WebviewUtility webview;
+    private WebviewEntity webview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +26,7 @@ public class MachineToShopActivity extends Activity {
 
     private void initView() {
         //绑定布局组件,自动实例化
-        webview = (WebviewUtility) findViewById(R.id.webview);
+        webview = (WebviewEntity) findViewById(R.id.webview);
         // 传入对应的url
         //        webview.loadMessageUrl("http://shop.borche.cn/mobile/");// 首页
 

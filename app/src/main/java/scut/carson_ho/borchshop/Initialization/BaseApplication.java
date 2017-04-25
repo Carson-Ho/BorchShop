@@ -1,4 +1,4 @@
-package scut.carson_ho.borchshop;
+package scut.carson_ho.borchshop.Initialization;
 
 import android.app.ActivityManager;
 import android.app.Application;
@@ -9,10 +9,13 @@ import com.xiaomi.mipush.sdk.MiPushClient;
 
 import java.util.List;
 
+import scut.carson_ho.borchshop.Web.WebviewEntity;
+
 /**
  * Created by Carson_Ho on 17/2/28.
  * 自定义Application
- *
+ * 用于对APP启动时候进行初始化
+ * 用于存放全局所需的类对象，提供静态方法获取
  * 注意:需要在清单文件中声明使用当前类
  *
  * <application android:name="包名.BaseApplication" >
@@ -28,6 +31,8 @@ public class BaseApplication extends Application {
     private static Context context;
     private static int mainThreadId;
 
+    private static WebviewEntity mWebView;
+
     // 当应用创建的时候,调用此方法
     @Override
     public void onCreate() {
@@ -37,6 +42,9 @@ public class BaseApplication extends Application {
         // 2. 获取主线程id
         mainThreadId = android.os.Process.myTid();
         // 初始化图片加载类
+
+        mWebView = new WebviewEntity(getContext());
+        mWebView.loadMessageUrl("http://121.40.100.57/mobile");
 
 
         if (shouldInit()) {
@@ -89,4 +97,14 @@ public class BaseApplication extends Application {
         return false;
     }
 
+    public static WebviewEntity getmWebView(){
+        return mWebView;
+    }
+
+    /*
+     * 设置WebView实例
+     */
+    public static void setmWebView(WebviewEntity webviewEntity){
+        mWebView = webviewEntity;
+    }
 }

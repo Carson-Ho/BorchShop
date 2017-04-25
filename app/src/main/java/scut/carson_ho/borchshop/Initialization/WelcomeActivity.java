@@ -1,4 +1,4 @@
-package scut.carson_ho.borchshop;
+package scut.carson_ho.borchshop.Initialization;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 
 import scut.carson_ho.borchshop.Guiders.GuiderActivity1;
+import scut.carson_ho.borchshop.R;
 
 /**
  * Created by Carson_Ho on 17/3/7.

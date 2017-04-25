@@ -1,9 +1,11 @@
-package scut.carson_ho.borchshop;
+package scut.carson_ho.borchshop.Utils;
 
 import android.content.Context;
 import android.util.DisplayMetrics;
 
 import java.lang.reflect.Field;
+
+import scut.carson_ho.borchshop.Initialization.BaseApplication;
 
 /**
  * Created by Carson_Ho on 17/2/28.

@@ -1,4 +1,4 @@
-package scut.carson_ho.borchshop;
+package scut.carson_ho.borchshop.Web;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -9,13 +9,19 @@ import android.webkit.WebViewClient;
 import android.widget.AbsoluteLayout;
 import android.widget.ProgressBar;
 
+import scut.carson_ho.borchshop.Interfaces.WebViewProgressChangeListener;
+import scut.carson_ho.borchshop.R;
+import scut.carson_ho.borchshop.Utils.ScreenUtil;
+import scut.carson_ho.borchshop.Utils.SdcardConfig;
+
 /**
  * Created by Carson_Ho on 17/2/28.
  * @Description: webview工具类
  */
-public class WebviewUtility extends WebView {
+public class WebviewEntity extends WebView {
 
     private ProgressBar mProgressBar;
+    private WebViewProgressChangeListener progressChangeListener;
 
 
     //在构造函数里进行初始化
@@ -24,7 +30,7 @@ public class WebviewUtility extends WebView {
      * @param attrs
      * @param defStyle
      */
-    public WebviewUtility(Context context, AttributeSet attrs, int defStyle) {
+    public WebviewEntity(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         initContext(context);
     }
@@ -33,7 +39,7 @@ public class WebviewUtility extends WebView {
      * @param context
      * @param attrs
      */
-    public WebviewUtility(Context context, AttributeSet attrs) {
+    public WebviewEntity(Context context, AttributeSet attrs) {
         super(context, attrs);
         initContext(context);
     }
@@ -41,7 +47,7 @@ public class WebviewUtility extends WebView {
     /**
      * @param context
      */
-    public WebviewUtility(Context context) {
+    public WebviewEntity(Context context) {
         super(context);
         initContext(context);
     }
@@ -93,6 +99,12 @@ public class WebviewUtility extends WebView {
         //为了建立手机客户端的信息数据库，需要从手机的http请求中取到这一字符串
         getSettings().setUserAgentString(getSettings().getUserAgentString() + "  Flygift/android");
 
+        //加入进度条
+        addProgressBar();
+
+
+
+
     }
 
     /**
@@ -128,10 +140,12 @@ public class WebviewUtility extends WebView {
         mProgressBar = new ProgressBar(getContext(), null,
                 android.R.attr.progressBarStyleHorizontal);
         mProgressBar.setLayoutParams(new AbsoluteLayout.LayoutParams(
-                AbsoluteLayout.LayoutParams.MATCH_PARENT, ScreenUtil.dip2px(1), 0, 0));
+                AbsoluteLayout.LayoutParams.MATCH_PARENT, ScreenUtil.dip2px(5), 0, 0));
+        //调用自定义样式drawable
         mProgressBar.setProgressDrawable(getContext().getResources()
                 .getDrawable(R.drawable.web_loading));
         addView(mProgressBar);
+        mProgressBar.setVisibility(GONE);
 
         setWebChromeClient(new WebChromeClient() {
 
@@ -151,6 +165,12 @@ public class WebviewUtility extends WebView {
             //获取网页进度
             @Override
             public void onProgressChanged(WebView view, int newProgress) {
+                //回调Listener
+                if (progressChangeListener != null){
+                    progressChangeListener.onWebViewProgressChange(newProgress);
+                    System.out.println("progressChangeListener:"+newProgress);
+                }
+                //更新进度条
                 if (newProgress == 100) {
                     mProgressBar.setVisibility(GONE);
                 } else {
@@ -163,11 +183,16 @@ public class WebviewUtility extends WebView {
         });
     }
 
+    public void setProgressChangeListener(WebViewProgressChangeListener progressChangeListener) {
+        this.progressChangeListener = progressChangeListener;
+    }
+
     /**
      * @Title: destroyWebView
      * @Description: 回收webview
      * @return void
      */
+
     public void destroyWebView() {
         clearCache(true);
         clearHistory();

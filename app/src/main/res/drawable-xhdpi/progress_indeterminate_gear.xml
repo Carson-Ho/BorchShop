@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:top="@dimen/y14"
+        android:bottom="@dimen/y14"
+        android:left="@dimen/y14"
+        android:right="@dimen/y14">
+        <rotate
+            android:drawable="@drawable/gear_1"
+            android:pivotX="50%"
+            android:pivotY="50%"
+            android:fromDegrees="0"
+            android:toDegrees="360" />
+
+    </item>
+
+    <item
+        android:top="@dimen/y44"
+        android:bottom="@dimen/y44"
+        android:left="@dimen/y44"
+        android:right="@dimen/y44">
+
+        <rotate
+            android:drawable="@drawable/gear_2"
+            android:pivotX="50%"
+            android:pivotY="50%"
+            android:fromDegrees="0"
+            android:toDegrees="-360" />
+    </item>
+</layer-list>

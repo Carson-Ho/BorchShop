@@ -1,14 +1,18 @@
-package scut.carson_ho.borchshop;
+package scut.carson_ho.borchshop.Web;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.LinearLayout;
 
 import scut.carson_ho.borchshop.Guiders.GuiderActivity1;
+import scut.carson_ho.borchshop.Initialization.BaseApplication;
+import scut.carson_ho.borchshop.R;
 
 /**
  * Created by Carson_Ho on 17/2/28.
@@ -16,7 +20,9 @@ import scut.carson_ho.borchshop.Guiders.GuiderActivity1;
 public class WebActivity extends Activity {
 
     //声明的Webview子类
-    private WebviewUtility webview;
+    private WebviewEntity webview;
+    //声明父View
+    private LinearLayout linearLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,16 +36,25 @@ public class WebActivity extends Activity {
 
     private void initView() {
         //绑定布局组件,自动实例化
-        webview=(WebviewUtility) findViewById(R.id.webview);
+//        webview=(WebviewUtility) findViewById(R.id.webview);
         // 传入对应的url
         //        webview.loadMessageUrl("http://shop.borche.cn/mobile/");// 首页
 
         // webview.loadMessageUrl("http://121.40.100.57/mobile/m_search/list?isSelectMC=1&productType= \"建筑材料\"&material=PET&productWeight=1&moduleLength=1&moduleHeight=1&area=1&ejector=ejector&locatingRing=standard&screwType=screw_A&powerType=oilPressure&name=1&phoneNumber=1&company=1");//注塑系统
         // 选型系统到商城
 
+        //从BaseApplication里获取WebView
+        webview = BaseApplication.getmWebView();
+
+        //加入WebView
+        linearLayout = (LinearLayout) findViewById(R.id.ly_web);
+        webview = BaseApplication.getmWebView();
+        webview.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        webview.addProgressBar();
+        linearLayout.addView(webview);
 
         // 商城到选型系统
-        webview.loadMessageUrl("http://121.40.100.57/mobile");// 首页URL
+//        webview.loadMessageUrl("http://121.40.100.57/mobile");// 首页URL
 
 
         // 复写WebViewClient类的shouldOverrideUrlLoading方法
@@ -90,8 +105,13 @@ public class WebActivity extends Activity {
         return super.onKeyDown(keyCode, event);
     }
 
-
-
-
+    //防止再次进入时候重复addView，所以当此Activity退出时要RemoveView，并且设置启动模式为SingleTask
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        linearLayout.removeView(webview);
+        webview = null;
+        System.out.println("onDestory");
+    }
 }
 

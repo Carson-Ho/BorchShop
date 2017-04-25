@@ -25,7 +25,7 @@
     <!-- 应用程序启动时实例化该类-->
     <application
 
-        android:name=".BaseApplication"
+        android:name=".Initialization.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -34,7 +34,7 @@
 
 
         <!-- activity清单 -->
-        <activity android:name=".GuideActivity">
+        <activity android:name=".Initialization.GuideActivity" android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -43,21 +43,21 @@
         </activity>
 
 
-        <activity android:name=".WelcomeActivity" />
-        <activity android:name=".WebActivity" />
-        <activity android:name=".MachineToShopActivity" />
+        <activity android:name=".Initialization.WelcomeActivity" android:launchMode="singleTask"/>
+        <activity android:name=".Web.WebActivity" android:launchMode="singleTask"/>
+        <activity android:name=".MachineToShopActivity" android:launchMode="singleTask"/>
 
-        <activity android:name=".Guiders.GuiderActivity1" >
+        <activity android:name=".Guiders.GuiderActivity1" android:launchMode="singleTask">
 
         </activity>
 
-        <activity android:name=".Guiders.GuiderActivity2" />
+        <activity android:name=".Guiders.GuiderActivity2" android:launchMode="singleTask"/>
 
-        <activity android:name=".Guiders.GuiderActivity3" />
+        <activity android:name=".Guiders.GuiderActivity3" android:launchMode="singleTask"/>
 
-        <activity android:name=".Guiders.GuiderActivity4" />
+        <activity android:name=".Guiders.GuiderActivity4" android:launchMode="singleTask"/>
 
-        <activity android:name=".Guiders.GuiderActivity5"/>
+        <activity android:name=".Guiders.GuiderActivity5" android:launchMode="singleTask"/>
 
         /注册广播BroadcastReceiver和Service
         //都是静态注册，因为要长期处在后台运行
@@ -108,7 +108,7 @@
 
         //继承了PushMessageReceiver的DemoMessageReceiver的广播注册
         <receiver
-            android:name=".Mipush_Broadcast"
+            android:name=".Initialization.Mipush_Broadcast"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.xiaomi.mipush.RECEIVE_MESSAGE" />
