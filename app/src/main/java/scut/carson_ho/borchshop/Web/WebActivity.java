@@ -136,11 +136,11 @@ public class WebActivity extends Activity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK ) {
             //让后退键可以退出错误页面，回到首页
-            if ("file:///android_asset/error_disconnect.html".equals(webview.getUrl())){
-                Intent localIntent = new Intent();
-                localIntent.setClass(WebActivity.this, GuiderActivity1.class);
-                startActivity(localIntent);
-            }
+//            if ("file:///android_asset/error_disconnect.html".equals(webview.getUrl())){
+//                Intent localIntent = new Intent();
+//                localIntent.setClass(WebActivity.this, GuiderActivity1.class);
+//                startActivity(localIntent);
+//            }
             if (webview.canGoBack()) {
                 webview.goBack();// 返回前一个页面
                 return true;
