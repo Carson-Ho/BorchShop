@@ -1,14 +1,25 @@
 package scut.carson_ho.borchshop.Web;
 
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.webkit.WebChromeClient;
+import android.webkit.WebResourceError;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.AbsoluteLayout;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
+import scut.carson_ho.borchshop.Guiders.GuiderActivity1;
+import scut.carson_ho.borchshop.Initialization.BaseApplication;
 import scut.carson_ho.borchshop.Interfaces.WebViewProgressChangeListener;
 import scut.carson_ho.borchshop.R;
 import scut.carson_ho.borchshop.Utils.ScreenUtil;
@@ -22,6 +33,7 @@ public class WebviewEntity extends WebView {
 
     private ProgressBar mProgressBar;
     private WebViewProgressChangeListener progressChangeListener;
+    private Context context;
 
 
     //在构造函数里进行初始化
@@ -32,6 +44,7 @@ public class WebviewEntity extends WebView {
      */
     public WebviewEntity(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+        this.context = context;
         initContext(context);
     }
 
@@ -41,6 +54,7 @@ public class WebviewEntity extends WebView {
      */
     public WebviewEntity(Context context, AttributeSet attrs) {
         super(context, attrs);
+        this.context = context;
         initContext(context);
     }
 
@@ -49,6 +63,7 @@ public class WebviewEntity extends WebView {
      */
     public WebviewEntity(Context context) {
         super(context);
+        this.context = context;
         initContext(context);
     }
 
@@ -103,49 +118,68 @@ public class WebviewEntity extends WebView {
         addProgressBar();
 
 
-
-
-    }
-
-    /**
-     * @Title: loadMessageUrl
-     * @Description: 加载网页url
-     * @param url
-     * @return void
-     */
-
-
-    // 点击网页里面的链接还是在当前的webview里跳转，不跳到浏览器
-
-    public void loadMessageUrl(String url) {
-        super.loadUrl(url);
         setWebViewClient(new WebViewClient() {
 
+            @TargetApi(Build.VERSION_CODES.M)
             @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                loadUrl(url);
-                //loadDataWithBaseURL("about:blank", url, "text/html", "utf-8", null);
-                return true;
+            public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
+                if (!request.getUrl().toString().equals("xmg://backToLoaclPage")){
+                    loadMessageUrl("file:///android_asset/error_disconnect.html");
+                }
+                super.onReceivedError(view, request, error);
             }
-        });
-    }
 
-    /**
-     * @Title: addProgressBar
-     * @Description: 添加进度条
-     * @return void
-     */
-    @SuppressWarnings("deprecation")
-    public void addProgressBar() {
-        mProgressBar = new ProgressBar(getContext(), null,
-                android.R.attr.progressBarStyleHorizontal);
-        mProgressBar.setLayoutParams(new AbsoluteLayout.LayoutParams(
-                AbsoluteLayout.LayoutParams.MATCH_PARENT, ScreenUtil.dip2px(5), 0, 0));
-        //调用自定义样式drawable
-        mProgressBar.setProgressDrawable(getContext().getResources()
-                .getDrawable(R.drawable.web_loading));
-        addView(mProgressBar);
-        mProgressBar.setVisibility(GONE);
+            //API23前调用
+            @Override
+            public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+                if (!failingUrl.equals("xmg://backToLoaclPage")){
+                    loadMessageUrl("file:///android_asset/error_disconnect.html");
+                }
+                super.onReceivedError(view, errorCode, description, failingUrl);
+            }
+
+            //API版本21才执行，用于根据Http状态码来判断是否跳转到错误页
+            //看源码发现这个方法是http状态码大于等于400才会被调用，这样的话一些400-499的图片加载出错等都会调用
+            //所以直接设为服务器出错才跳到错误页
+            @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+            public void onReceivedHttpError(WebView view, WebResourceRequest request, WebResourceResponse errorResponse) {
+                super.onReceivedHttpError(view, request, errorResponse);
+                //服务器出错
+                if (errorResponse.getStatusCode() >= 500) {
+                    loadMessageUrl("file:///android_asset/error_http.html");
+                }
+            }
+
+            //这里不用隐式Intent启动来一劳永逸，因为会清空Activity栈，导致不能正常一键退出，而且启动还很慢
+//            @Override
+//            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+//
+//                // 步骤2：根据协议的参数，判断是否是所需要的url
+//                // 根据scheme（协议格式） & authority（协议名）判断（前两个参数）
+//                // 首页的JS传入进来的 url = 'xmg://backToLoaclPage'（同时也是约定好的需要拦截的）
+//
+//                Uri uri = Uri.parse(url);
+//                // 如果url的协议 = 预先约定的 js 协议
+//                // 就解析往下解析参数
+//                if (uri.getScheme().equals("xmg")) {
+//                    // 如果 authority  = 预先约定协议里的 webview，即代表都符合约定的协议
+//                    // 所以拦截url,下面JS开始调用Android需要的方法
+//                    if (uri.getAuthority().equals("backToLoaclPage")) {
+//                        //  步骤3：
+//                        // 执行JS所需要调用的逻辑
+//                        System.out.println("js调用了Android的方法");
+//                        Intent localIntent = new Intent();
+////                        localIntent.setClass(context, GuiderActivity1.class);
+//                        localIntent.setAction("ACTION_BACK_TO_MAIN");
+//                        context.startActivity(localIntent);
+//
+//                    }
+//                    return true;
+//                }
+//                loadUrl(url);
+//                return super.shouldOverrideUrlLoading(view, url);
+//            }
+        });
 
         setWebChromeClient(new WebChromeClient() {
 
@@ -183,9 +217,45 @@ public class WebviewEntity extends WebView {
         });
     }
 
+    /**
+     * @Title: loadMessageUrl
+     * @Description: 加载网页url
+     * @param url
+     * @return void
+     */
+
+
+    // 点击网页里面的链接还是在当前的webview里跳转，不跳到浏览器
+
+    public void loadMessageUrl(String url) {
+        super.loadUrl(url);
+
+    }
+
+    /**
+     * @Title: addProgressBar
+     * @Description: 添加进度条
+     * @return void
+     */
+    @SuppressWarnings("deprecation")
+    public void addProgressBar() {
+        mProgressBar = new ProgressBar(getContext(), null,
+                android.R.attr.progressBarStyleHorizontal);
+        mProgressBar.setLayoutParams(new AbsoluteLayout.LayoutParams(
+                AbsoluteLayout.LayoutParams.MATCH_PARENT, ScreenUtil.dip2px(5), 0, 0));
+        //调用自定义样式drawable
+        mProgressBar.setProgressDrawable(getContext().getResources()
+                .getDrawable(R.drawable.web_loading));
+        addView(mProgressBar);
+        mProgressBar.setVisibility(GONE);
+
+
+    }
+
     public void setProgressChangeListener(WebViewProgressChangeListener progressChangeListener) {
         this.progressChangeListener = progressChangeListener;
     }
+
 
     /**
      * @Title: destroyWebView

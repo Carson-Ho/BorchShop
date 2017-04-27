@@ -1,12 +1,20 @@
 package scut.carson_ho.borchshop.Initialization;
 
+import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
 import android.os.Process;
+import android.webkit.WebResourceError;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 import com.xiaomi.mipush.sdk.MiPushClient;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import scut.carson_ho.borchshop.Web.WebviewEntity;
@@ -30,7 +38,7 @@ public class BaseApplication extends Application {
 
     private static Context context;
     private static int mainThreadId;
-
+    private static LinkedList<Activity> activitiesList;
     private static WebviewEntity mWebView;
 
     // 当应用创建的时候,调用此方法
@@ -44,7 +52,12 @@ public class BaseApplication extends Application {
         // 初始化图片加载类
 
         mWebView = new WebviewEntity(getContext());
+
+
         mWebView.loadMessageUrl("http://121.40.100.57/mobile");
+
+        //用于保存已打开的Activity信息，方便一键退出
+        activitiesList = new LinkedList<>();
 
 
         if (shouldInit()) {
@@ -101,10 +114,31 @@ public class BaseApplication extends Application {
         return mWebView;
     }
 
-    /*
-     * 设置WebView实例
-     */
-    public static void setmWebView(WebviewEntity webviewEntity){
-        mWebView = webviewEntity;
+    public static void setmWebView(WebviewEntity mWebView) {
+        BaseApplication.mWebView = mWebView;
     }
+
+    /*
+         * 设置WebView实例
+         */
+    public static void mWebViewLoad(String url){
+        mWebView.loadMessageUrl(url);
+    }
+
+    public static void addActivity(Activity activity){
+        activitiesList.add(activity);
+    }
+
+    public static LinkedList<Activity> getActivitiesList() {
+        return activitiesList;
+    }
+
+
+    public static void exit(){
+        for(Activity activity: activitiesList) {
+            activity.finish();
+        }
+        android.os.Process.killProcess(android.os.Process.myPid());
+    }
+
 }

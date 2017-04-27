@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import scut.carson_ho.borchshop.R;
@@ -53,6 +54,9 @@ public class GuideActivity extends Activity  {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guide);
+
+        //加入Activity退出列表
+        BaseApplication.addActivity(GuideActivity.this);
         
 
 //        tv_time = (TextView) findViewById(R.id.tv_time);
@@ -156,9 +160,9 @@ public class GuideActivity extends Activity  {
                             Intent localIntent = new Intent();
                             localIntent.setClass(GuideActivity.this,
                                     WelcomeActivity.class);
+                            localIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                             startActivity(localIntent);
-
                             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
 
                             GuideActivity.this.finish();

@@ -48,7 +48,10 @@
         <activity android:name=".MachineToShopActivity" android:launchMode="singleTask"/>
 
         <activity android:name=".Guiders.GuiderActivity1" android:launchMode="singleTask">
-
+            <intent-filter>
+                <action android:name="ACTION_BACK_TO_MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
         </activity>
 
         <activity android:name=".Guiders.GuiderActivity2" android:launchMode="singleTask"/>

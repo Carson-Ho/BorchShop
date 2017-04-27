@@ -56,6 +56,8 @@ public class WelcomeActivity extends Activity implements View.OnClickListener {
 
     }
 
+
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -75,10 +77,12 @@ public class WelcomeActivity extends Activity implements View.OnClickListener {
 
     private void stepIntoNext() {
         workHandler.removeCallbacksAndMessages(null);
+        //加入退出列表
+        BaseApplication.addActivity(this);
         Intent localIntent = new Intent();
         localIntent.setClass(WelcomeActivity.this, GuiderActivity1.class);
         startActivity(localIntent);
-        finish();
+        WelcomeActivity.this.finish();
     }
 
 
@@ -141,6 +145,7 @@ public class WelcomeActivity extends Activity implements View.OnClickListener {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        System.out.println("destroy");
         mainHandler.removeCallbacksAndMessages(null);
         workHandler.removeCallbacksAndMessages(null);
     }
