@@ -3,7 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <scut.carson_ho.borchshop.WebviewUtility
+    <scut.carson_ho.borchshop.Web.WebviewEntity
         android:id="@+id/webview"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

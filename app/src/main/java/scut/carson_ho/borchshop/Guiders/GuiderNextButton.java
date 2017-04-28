@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import scut.carson_ho.borchshop.Interfaces.NextButtonClickListener;
 import scut.carson_ho.borchshop.R;
 
 /**
@@ -23,6 +24,7 @@ public class GuiderNextButton extends Button implements View.OnClickListener {
     private GudierActivity activity;
     private ArrayList<TextView> tv_list;
     private ArrayList<String> checkDefaultStrings;
+    private NextButtonClickListener clickListener;
 
     public GuiderNextButton(Context activity) {
         super(activity);
@@ -52,6 +54,9 @@ public class GuiderNextButton extends Button implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+        if (clickListener != null){
+            clickListener.onNextButtonClick();
+        }
         intent = activity.pushData();
         if (activity != null && intent != null){
             activity.startActivity(intent);
@@ -115,4 +120,7 @@ public class GuiderNextButton extends Button implements View.OnClickListener {
         }
     }
 
+    public void setClickListener(NextButtonClickListener clickListener) {
+        this.clickListener = clickListener;
+    }
 }
