@@ -134,11 +134,11 @@ public class BaseApplication extends Application {
     }
 
 
-    public static void exit(){
+    //清除前面已打开的Activity
+    public static void activitiesClearTop(){
         for(Activity activity: activitiesList) {
             activity.finish();
         }
-        android.os.Process.killProcess(android.os.Process.myPid());
     }
 
 }

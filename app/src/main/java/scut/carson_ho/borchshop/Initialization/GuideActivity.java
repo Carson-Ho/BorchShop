@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -270,8 +271,16 @@ public class GuideActivity extends Activity  {
         dots.get(0).setSelected(true);
     }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        //判断用户是否点击了“返回键”
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 
-//    /**
+    //    /**
 //     * 多次启动
 //     **/
 //    private void multipleStart() {
@@ -280,7 +289,7 @@ public class GuideActivity extends Activity  {
 //                WelcomeActivity.class);
 
 
-    }
+}
 
 //    /**
 //     * 跳过直接进入商城主页

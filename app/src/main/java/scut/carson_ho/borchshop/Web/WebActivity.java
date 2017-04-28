@@ -20,7 +20,7 @@ import scut.carson_ho.borchshop.Initialization.BaseApplication;
 import scut.carson_ho.borchshop.R;
 
 /**
- * Created by Carson_Ho on 17/2/28.
+ * 用于显示WebView的Activity
  */
 public class WebActivity extends Activity {
 

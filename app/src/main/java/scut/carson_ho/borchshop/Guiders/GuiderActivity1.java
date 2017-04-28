@@ -1,12 +1,9 @@
 package scut.carson_ho.borchshop.Guiders;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.widget.Toast;
-
-import java.util.LinkedList;
 
 import scut.carson_ho.borchshop.Initialization.BaseApplication;
 import scut.carson_ho.borchshop.R;
@@ -23,6 +20,7 @@ public class GuiderActivity1 extends GudierActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guider1);
         init();
+        BaseApplication.activitiesClearTop();
 
     }
 
@@ -59,13 +57,12 @@ public class GuiderActivity1 extends GudierActivity {
                 //并记录下本次点击“返回键”的时刻，以便下次进行判断
                 mExitTime = System.currentTimeMillis();
             } else {
-                //小于2000ms则认为是用户确实希望退出程序-调用System.exit()方法进行退出
-                LinkedList<Activity> activitieslist = BaseApplication.getActivitiesList();
-                System.out.println("开启Activitys： " + activitieslist.size());
+                //小于2000ms则认为是用户确实希望退出程序
 
                 //退出APP
-                BaseApplication.exit();
-                System.exit(0);
+                finish();
+                overridePendingTransition(R.anim.anim_null, R.anim.scale_out);
+                android.os.Process.killProcess(android.os.Process.myPid());
             }
             return true;
         }
