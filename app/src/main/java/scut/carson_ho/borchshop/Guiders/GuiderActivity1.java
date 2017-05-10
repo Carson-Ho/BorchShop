@@ -61,7 +61,7 @@ public class GuiderActivity1 extends GudierActivity {
 
                 //退出APP
                 finish();
-                overridePendingTransition(R.anim.anim_null, R.anim.fade_out);
+                overridePendingTransition(R.anim.anim_null, R.anim.scale_out);
                 android.os.Process.killProcess(android.os.Process.myPid());
             }
             return true;
