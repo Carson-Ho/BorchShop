@@ -2,7 +2,14 @@ package scut.carson_ho.borchshop.Web;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
+<<<<<<< HEAD:app/src/main/java/scut/carson_ho/borchshop/Web/WebviewEntity.java
 import android.content.Context;
+=======
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+>>>>>>> a109f9d8c57af8327a9633a8b08cb466678a3617:app/src/main/java/scut/carson_ho/borchshop/Web/WebviewEntity.java
 import android.os.Build;
 import android.util.AttributeSet;
 import android.webkit.WebChromeClient;
@@ -13,6 +20,14 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.AbsoluteLayout;
 import android.widget.ProgressBar;
+import android.widget.Toast;
+
+import scut.carson_ho.borchshop.Guiders.GuiderActivity1;
+import scut.carson_ho.borchshop.Initialization.BaseApplication;
+import scut.carson_ho.borchshop.Interfaces.WebViewProgressChangeListener;
+import scut.carson_ho.borchshop.R;
+import scut.carson_ho.borchshop.Utils.ScreenUtil;
+import scut.carson_ho.borchshop.Utils.SdcardConfig;
 
 import scut.carson_ho.borchshop.Interfaces.WebViewProgressChangeListener;
 import scut.carson_ho.borchshop.R;
@@ -20,8 +35,7 @@ import scut.carson_ho.borchshop.Utils.ScreenUtil;
 import scut.carson_ho.borchshop.Utils.SdcardConfig;
 
 /**
- * Created by Carson_Ho on 17/2/28.
- * @Description: webview工具类
+ * @Description: webview实体类
  */
 public class WebviewEntity extends WebView {
 
@@ -143,6 +157,7 @@ public class WebviewEntity extends WebView {
                     loadMessageUrl("file:///android_asset/error_http.html");
                 }
             }
+<<<<<<< HEAD:app/src/main/java/scut/carson_ho/borchshop/Web/WebviewEntity.java
 
             //这里不用隐式Intent启动来一劳永逸，因为会清空Activity栈，导致不能正常一键退出，而且启动还很慢
 //            @Override
@@ -173,6 +188,8 @@ public class WebviewEntity extends WebView {
 //                loadUrl(url);
 //                return super.shouldOverrideUrlLoading(view, url);
 //            }
+=======
+>>>>>>> a109f9d8c57af8327a9633a8b08cb466678a3617:app/src/main/java/scut/carson_ho/borchshop/Web/WebviewEntity.java
         });
 
         setWebChromeClient(new WebChromeClient() {

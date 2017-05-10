@@ -5,6 +5,12 @@ import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
 import android.os.Process;
+import android.webkit.WebResourceError;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 import com.xiaomi.mipush.sdk.MiPushClient;
 
@@ -41,6 +47,7 @@ public class BaseApplication extends Application {
         super.onCreate();
         // 1. 获取Context
         context = getApplicationContext();
+        System.out.println("APPPPPPPPPPPPPPPP");
         // 2. 获取主线程id
         mainThreadId = android.os.Process.myTid();
         // 初始化图片加载类

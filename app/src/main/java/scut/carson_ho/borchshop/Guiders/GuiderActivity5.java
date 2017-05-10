@@ -71,7 +71,7 @@ public class GuiderActivity5 extends GudierActivity implements NextButtonClickLi
         System.out.println("螺杆类型："+productSearchParms.getScrewType());
         System.out.println("动力类型："+productSearchParms.getPowerType());
         System.out.println("姓名："+productSearchParms.getName());
-        System.out.println("年龄："+productSearchParms.getPhoneNumber());
+        System.out.println("手机号码："+productSearchParms.getPhoneNumber());
         System.out.println("公司："+productSearchParms.getCompany());
         return null;
     }
