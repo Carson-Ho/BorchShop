@@ -16,6 +16,10 @@ import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 
+/*
+ * 用于实现多排多列RadioGroup的自定义RadioGroup
+ */
+
 public class MutilayoutRadioGroup extends LinearLayout {
     // holds the checked id; the selection is empty by default
     private int mCheckedId = -1;

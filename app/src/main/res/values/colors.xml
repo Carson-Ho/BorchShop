@@ -5,6 +5,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorDark">#e4e4e4</color>
+    <color name="colorBlack">#000000</color>
     <color name="BorchBarColor">#FFD705</color>
     <color name="BorchBarTitleColor">#6B450A</color>
     <color name="BorchPleaseTextColor">#6B450A</color>

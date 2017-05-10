@@ -11,7 +11,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import scut.carson_ho.borchshop.R;
-import scut.carson_ho.borchshop.WebActivity;
+import scut.carson_ho.borchshop.Web.WebActivity;
 
 public class GuiderActivity2 extends GudierActivity {
     private GuiderNextButton btn_next;

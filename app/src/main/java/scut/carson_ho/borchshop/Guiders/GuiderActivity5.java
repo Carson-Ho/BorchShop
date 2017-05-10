@@ -7,15 +7,20 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import scut.carson_ho.borchshop.MachineToShopActivity;
+import scut.carson_ho.borchshop.Initialization.BaseApplication;
+import scut.carson_ho.borchshop.Interfaces.NextButtonClickListener;
 import scut.carson_ho.borchshop.R;
+import scut.carson_ho.borchshop.Web.WebActivity;
+import scut.carson_ho.borchshop.Interfaces.WebViewProgressChangeListener;
+import scut.carson_ho.borchshop.Web.WebviewEntity;
 
-public class GuiderActivity5 extends GudierActivity {
+public class GuiderActivity5 extends GudierActivity implements NextButtonClickListener,WebViewProgressChangeListener{
     private GuiderNextButton btn_next;
     private GuiderJumpButton btn_jump;
     private GuiderBackbutton btn_back;
     private EditText et_Guider5Name,et_Guider5Phone,et_Guider5Company;
     private ProductSearchParms productSearchParms;
+    public CustomProgressDialog customProgressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +31,7 @@ public class GuiderActivity5 extends GudierActivity {
         btn_next = (GuiderNextButton) findViewById(R.id.btn_Guider_Next);
         btn_next.setActivity(this);
         btn_jump = (GuiderJumpButton) findViewById(R.id.btn_Guider_Jump);
-        btn_jump.setIntent(this,new Intent(this, MachineToShopActivity.class));
+        btn_jump.setIntent(this,new Intent(this, WebActivity.class));
         btn_back = (GuiderBackbutton) findViewById(R.id.btn_Guider_back);
         btn_back.setActivity(this);
 
@@ -39,15 +44,19 @@ public class GuiderActivity5 extends GudierActivity {
         defaultTextViews.add(et_Guider5Phone);
         defaultTextViews.add(et_Guider5Company);
         btn_next.AddListeningEditTexts(defaultTextViews);
+        btn_next.setClickListener(this);
 
         productSearchParms = (ProductSearchParms) getIntent().getSerializableExtra("productSearchParms");
 //        System.out.println(productSearchParms.getPowerType());
+        //初始化Dialog
+        customProgressDialog = new CustomProgressDialog(this);
+        customProgressDialog.setMessage("加载中");
 
     }
 
     @Override
     public Intent pushData() {
-        Intent intent = new Intent(this,MachineToShopActivity.class);
+        Intent intent = new Intent(this,WebActivity.class);
         productSearchParms.setName(et_Guider5Name.getText().toString());
         productSearchParms.setPowerType(et_Guider5Phone.getText().toString());
         productSearchParms.setCompany(et_Guider5Company.getText().toString());
@@ -64,6 +73,27 @@ public class GuiderActivity5 extends GudierActivity {
         System.out.println("姓名："+productSearchParms.getName());
         System.out.println("年龄："+productSearchParms.getPhoneNumber());
         System.out.println("公司："+productSearchParms.getCompany());
-        return intent;
+        return null;
+    }
+
+    @Override
+    public void onNextButtonClick() {
+
+        WebviewEntity webView = BaseApplication.getmWebView();
+        webView.setProgressChangeListener(this);
+        webView.loadMessageUrl("http://121.40.100.57/mobile/m_search/list?isSelectMC=1&productType= \"建筑材料\"&material=PET&productWeight=1&moduleLength=1&moduleHeight=1&area=1&ejector=ejector&locatingRing=standard&screwType=screw_A&powerType=oilPressure&name=1&phoneNumber=1&company=1");
+
+        customProgressDialog.show();
+    }
+
+    @Override
+    public void onWebViewProgressChange(int progress) {
+        customProgressDialog.setProgress(progress);
+        if (progress == 100){
+            Intent intent = new Intent(this,WebActivity.class);
+            startActivity(intent);
+            //关闭Dialog，不用cancel方法，cancel方法会回调Listener
+            customProgressDialog.dismiss();
+        }
     }
 }

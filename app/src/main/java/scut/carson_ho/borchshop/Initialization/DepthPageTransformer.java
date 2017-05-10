@@ -1,4 +1,4 @@
-package scut.carson_ho.borchshop;
+package scut.carson_ho.borchshop.Initialization;
 
 import android.annotation.SuppressLint;
 import android.support.v4.view.ViewPager;

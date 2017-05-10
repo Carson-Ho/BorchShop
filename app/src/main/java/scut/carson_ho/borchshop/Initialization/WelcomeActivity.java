@@ -1,4 +1,4 @@
-package scut.carson_ho.borchshop;
+package scut.carson_ho.borchshop.Initialization;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,10 +6,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 
 import scut.carson_ho.borchshop.Guiders.GuiderActivity1;
+import scut.carson_ho.borchshop.R;
 
 /**
  * Created by Carson_Ho on 17/3/7.
@@ -55,6 +57,8 @@ public class WelcomeActivity extends Activity implements View.OnClickListener {
 
     }
 
+
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -74,10 +78,12 @@ public class WelcomeActivity extends Activity implements View.OnClickListener {
 
     private void stepIntoNext() {
         workHandler.removeCallbacksAndMessages(null);
+        //加入退出列表
+        BaseApplication.addActivity(this);
         Intent localIntent = new Intent();
         localIntent.setClass(WelcomeActivity.this, GuiderActivity1.class);
         startActivity(localIntent);
-        finish();
+        WelcomeActivity.this.finish();
     }
 
 
@@ -136,10 +142,19 @@ public class WelcomeActivity extends Activity implements View.OnClickListener {
 
     }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        //判断用户是否点击了“返回键”
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        System.out.println("destroy");
         mainHandler.removeCallbacksAndMessages(null);
         workHandler.removeCallbacksAndMessages(null);
     }
