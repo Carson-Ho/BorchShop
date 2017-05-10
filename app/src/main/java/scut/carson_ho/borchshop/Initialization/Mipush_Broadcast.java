@@ -66,10 +66,10 @@ public class Mipush_Broadcast extends PushMessageReceiver {
             if (message.getResultCode() == ErrorCode.SUCCESS) {
 
                 //打印信息便于测试注册成功与否
-                System.out.println("注册成功");
+                System.out.println("注册成功1");
 
             } else {
-                System.out.println("注册失败");
+                System.out.println("注册失败1");
             }
         }
     }

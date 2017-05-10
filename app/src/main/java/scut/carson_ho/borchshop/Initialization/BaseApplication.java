@@ -47,6 +47,7 @@ public class BaseApplication extends Application {
         super.onCreate();
         // 1. 获取Context
         context = getApplicationContext();
+        System.out.println("APPPPPPPPPPPPPPPP");
         // 2. 获取主线程id
         mainThreadId = android.os.Process.myTid();
         // 初始化图片加载类
