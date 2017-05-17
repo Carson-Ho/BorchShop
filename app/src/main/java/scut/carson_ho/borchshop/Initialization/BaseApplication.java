@@ -5,12 +5,6 @@ import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
 import android.os.Process;
-import android.webkit.WebResourceError;
-import android.webkit.WebResourceRequest;
-import android.webkit.WebResourceResponse;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.Toast;
 
 import com.xiaomi.mipush.sdk.MiPushClient;
 
@@ -55,7 +49,7 @@ public class BaseApplication extends Application {
         mWebView = new WebviewEntity(getContext());
 
 
-        mWebView.loadMessageUrl("http://121.40.100.57/mobile");
+        mWebView.loadMessageUrl("http://shop.borche.cn/mobile/");
 
         //用于保存已打开的Activity信息，方便一键退出
         activitiesList = new LinkedList<>();
