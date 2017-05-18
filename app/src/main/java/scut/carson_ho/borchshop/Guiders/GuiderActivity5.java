@@ -84,17 +84,17 @@ public class GuiderActivity5 extends GudierActivity implements NextButtonClickLi
         webView.loadMessageUrl("http://shop.borche.cn/mobile/m_search/" +
                 "list?isSelectMC=1&productType= \"" + productSearchParms.getProductType()
                 + "\"&material=" + productSearchParms.getMaterial()
-                + " & productWeight = " + productSearchParms.getProductWeight()
-                + "& moduleLength = " + productSearchParms.getModuleLength()
-                + "& moduleHeight = " + productSearchParms.getModuleHeight()
-                + "& area = " + (productSearchParms.getProductWeight() * productSearchParms.getModuleLength() * productSearchParms.getModuleHeight())
-                + "& ejector =" + productSearchParms.getEjector()
-                + "& locatingRing =" + productSearchParms.getLocatingRing()
-                + "& screwType = " + productSearchParms.getScrewType()
-                + "& powerType = " + productSearchParms.getPowerType()
-                + "& name =" + productSearchParms.getName()
-                + "& phoneNumber = " + productSearchParms.getPhoneNumber()
-                + "& company = " + productSearchParms.getCompany());
+                + "&productWeight=" + productSearchParms.getProductWeight()
+                + "&moduleLength=" + productSearchParms.getModuleLength()
+                + "&moduleHeight=" + productSearchParms.getModuleHeight()
+                + "&area=" + (productSearchParms.getProductWeight() * productSearchParms.getModuleLength() * productSearchParms.getModuleHeight())
+                + "&ejector=" + productSearchParms.getEjector()
+                + "&locatingRing=" + productSearchParms.getLocatingRing()
+                + "&screwType= " + productSearchParms.getScrewType()
+                + "&powerType=" + productSearchParms.getPowerType()
+                + "&name=" + productSearchParms.getName()
+                + "&phoneNumber=" + productSearchParms.getPhoneNumber()
+                + "&company=" + productSearchParms.getCompany());
 
         // 测试的:http://shop.borche.cn/mobile/m_search/list?isSelectMC=1&productType= "建筑材料"&material=PET&productWeight=1&moduleLength=1&moduleHeight=1&area=1&ejector=ejector&locatingRing=standard&screwType=screw_A&powerType=oilPressure&name=1&phoneNumber=1&company=1
 
