@@ -48,6 +48,7 @@ public class GuiderActivity5 extends GudierActivity implements NextButtonClickLi
 
         productSearchParms = (ProductSearchParms) getIntent().getSerializableExtra("productSearchParms");
 //        System.out.println(productSearchParms.getPowerType());
+
         //初始化Dialog
         customProgressDialog = new CustomProgressDialog(this);
         customProgressDialog.setMessage("加载中");

@@ -25,7 +25,7 @@ public class MachineToShopActivity extends Activity {
     }
 
     private void initView() {
-        //绑定布局组件,自动实例化
+        // 直接调用在Applicaiton中缓存WebView,绑定布局组件,自动实例化
         webview = (WebviewEntity) findViewById(R.id.webview);
         // 传入对应的url
         //        webview.loadMessageUrl("http://shop.borche.cn/mobile/");// 首页
